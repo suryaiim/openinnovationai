@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-ssl
+  annotations:
+    #kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt    
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: grafana.practicecloud.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-grafana
+                port: 
+                  number: 80
+    - host: prometheus.practicecloud.cloud
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prometheus-kube-prometheus-prometheus
+                port: 
+                  number: 9090                         
+  tls:
+  - hosts:
+    - grafana.practicecloud.cloud
+    secretName: grafana-secret           
+  - hosts:
+    - prometheus.practicecloud.cloud
+    secretName: prometheus-grafana-secret           
+
+          

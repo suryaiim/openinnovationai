@@ -1,0 +1,7 @@
+{
+  "tenantId": "88e7175d-e6bc-4e4b-841c-aa13b0144bf4",
+  "subscriptionId": "d8ac9cb3-835c-4b1f-8116-a72ee131fffd",
+  "resourceGroup": "NetworkWatcherRG", 
+  "useManagedIdentityExtension": true,
+  "userAssignedIdentityID": "de22708c-ca79-4ee8-b0dc-dcb3636b14df"
+}

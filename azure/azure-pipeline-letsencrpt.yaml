@@ -1,0 +1,38 @@
+trigger:
+- none
+
+pool:
+  #vmImage: 'ubuntu-latest'
+  name: 'Azure Pipelines'
+
+
+
+
+jobs:
+- job: HelmDeploy
+  displayName: "Helm Deploy to Kubernetes"
+  steps:
+  - task: HelmInstaller@1
+    inputs:
+      helmVersionToInstall: 'latest'  # Install the latest Helm version
+  - task: CmdLine@2
+    displayName: "Install Helm Charts"
+    inputs:
+      script: |
+        helm repo add jetstack https://charts.jetstack.io
+        helm repo update
+    
+  - task: HelmDeploy@0
+    inputs:
+      connectionType: 'Kubernetes Service Connection'
+      kubernetesServiceEndpoint: 'aks-connection'
+      namespace: 'ingress-basic'
+      command: upgrade
+      chartType: Name
+      chartName: jetstack/cert-manager
+      #chartPath: 
+      releaseName: cert-manager
+      #valueFile: '$(Build.SourcesDirectory)/values.yaml'
+      #valueFile: '$(Build.SourcesDirectory)/values.yaml'
+      #install: true
+      arguments: '--install --create-namespace --version v1.13.3 --set installCRDs=true'
