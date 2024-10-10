@@ -1,3 +1,21 @@
+# Proposed Solution
+- **SCM -**  Github
+- **Infrastructure Platform -** 
+  - I will use **Azure cloud** for provisioning all my workloads.
+  - AKS works on pay per use
+- **Orchestration Platform -** 
+  - I will use AWS **AKS Kubernetes** for orchestration.
+  - Kubernetes have lots of advantages over other platform such as scalability, scheduling ease, easy administration, self healing, fault tolerant and Kubernetes is highly available along with good community support.
+- **Secret Management -** 
+  - Used **Hashicorp Vault** for secret management in Kubernetes.
+- **Infrastructure Automation -**
+  - I will use **Terraform** for provisioning infrastructure.
+  - Terraform maintain state of infra.
+  - Using **AzureDevops** for continuous deployment of infrastructure with terraform
+- **Automate Deployment of microservices -**
+  - I will use **AzureDevops** for CI/CD purpose of different microservices. Each service has its own repository.
+  - Also **Helm chart** for deploying application across env.
+  - We will use **Ingress** for exposing out application
 
 ## Components
 
