@@ -48,3 +48,5 @@
 - **Access Control and Auditing**: Vault integrates with identity providers for robust authentication and authorization, ensuring only authorized entities can access secrets.
 - **Automated Secrets Rotation**: Vault can automatically rotate secrets at predefined intervals, ensuring that credentials remain secure and up-to-date.
 - **Integrated with Kubernetes**: HashiCorp Vault can be integrated with AKS to manage secrets for applications running in the cluster securely.
+
+Deployed Application reference link : This site was built using [GitHub Pages](https://github.com/suryaiim/stacksimplfy).
